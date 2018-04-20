@@ -1,0 +1,954 @@
+{
+    "Aaron McCargo Jr.": {
+        "FirstName": "Aaron",
+        "LastName": "McCargo Jr.",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/aaron-mccargo-jr",
+        "PopularRecipe": "Simple Roasted Pork Shoulder",
+        "FlavorProfile": "American"
+    },
+    "Aarti Sequeira": {
+        "FirstName": "Aarti",
+        "LastName": "Sequeira",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/aarti-sequeira",
+        "PopularRecipe": "Indian Snack Mix (Chewda)",
+        "FlavorProfile": "South Asian"
+    },
+    "Aar\u00f3n S\u00e1nchez": {
+        "FirstName": "Aar\u00f3n",
+        "LastName": "S\u00e1nchez",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/aaron-sanchez",
+        "PopularRecipe": "Horchata",
+        "FlavorProfile": "Latin"
+    },
+    "Adam Gertler": {
+        "FirstName": "Adam",
+        "LastName": "Gertler",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/adam-gertler",
+        "PopularRecipe": "Smoked Pork Chops with Peach Bourbon BBQ Sauce",
+        "FlavorProfile": "BBQ"
+    },
+    "Adamand Andrew Erace": {
+        "FirstName": "Adamand Andrew",
+        "LastName": "Erace",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/adam-and-andrew-erace",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Aida Mollenkamp": {
+        "FirstName": "Aida",
+        "LastName": "Mollenkamp",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/aida-mollenkamp",
+        "PopularRecipe": "Vegetarian Pot Pie",
+        "FlavorProfile": "Innovative"
+    },
+    "Alex Guarnaschelli": {
+        "FirstName": "Alex",
+        "LastName": "Guarnaschelli",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/alex-guarnaschelli",
+        "PopularRecipe": "Homemade Cannoli",
+        "FlavorProfile": "Traditional Home-Cooking"
+    },
+    "Alfonso Ribeiro": {
+        "FirstName": "Alfonso",
+        "LastName": "Ribeiro",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/alfonso-ribeiro",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Ali Khan": {
+        "FirstName": "Ali",
+        "LastName": "Khan",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/ali-khan",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Amanda Freitag": {
+        "FirstName": "Amanda",
+        "LastName": "Freitag",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/amanda-freitag",
+        "PopularRecipe": "Pulled Pork Sandwich with BBQ Sauce and Coleslaw",
+        "FlavorProfile": "Traditional Home-Cooking"
+    },
+    "Amy Finley": {
+        "FirstName": "Amy",
+        "LastName": "Finley",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/amy-finley",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Amy Thielen": {
+        "FirstName": "Amy",
+        "LastName": "Thielen",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/amy-thielen",
+        "PopularRecipe": "Maple Bread with Soft Cheese",
+        "FlavorProfile": "Traditional Home-Cooking"
+    },
+    "Andrew Zimmern": {
+        "FirstName": "Andrew",
+        "LastName": "Zimmern",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/andrew-zimmern",
+        "PopularRecipe": "Pan Roasted Veal Shanks with Calvados, Apples and Cider Vinegar",
+        "FlavorProfile": "Innovative"
+    },
+    "Andy Richter": {
+        "FirstName": "Andy",
+        "LastName": "Richter",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/andy-richter",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Anne Burrell": {
+        "FirstName": "Anne",
+        "LastName": "Burrell",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/anne-burrell",
+        "PopularRecipe": "Lasagna",
+        "FlavorProfile": "Rustic"
+    },
+    "Anne Thornton": {
+        "FirstName": "Anne",
+        "LastName": "Thornton",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/anne-thornton",
+        "PopularRecipe": "Creamy Caramel Sauce",
+        "FlavorProfile": "Sweet Treats"
+    },
+    "Anthony Anderson": {
+        "FirstName": "Anthony",
+        "LastName": "Anderson",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/anthony-anderson",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Antonia Lofaso": {
+        "FirstName": "Antonia",
+        "LastName": "Lofaso",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/antonia-lofaso",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Anya Fernald": {
+        "FirstName": "Anya",
+        "LastName": "Fernald",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/anya-fernald",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Ayesha Curry": {
+        "FirstName": "Ayesha",
+        "LastName": "Curry",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/ayesha-curry",
+        "PopularRecipe": "Cauliflower Hot Wings with Buttermilk Ranch Dipping Sauce",
+        "FlavorProfile": "Home-Cooking"
+    },
+    "Bill Rancic": {
+        "FirstName": "Bill",
+        "LastName": "Rancic",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/bill-rancic",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Bob Blumer": {
+        "FirstName": "Bob",
+        "LastName": "Blumer",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/bob-blumer",
+        "PopularRecipe": "Beer Can Chicken",
+        "FlavorProfile": "Innovative"
+    },
+    "Bobby Flay": {
+        "FirstName": "Bobby",
+        "LastName": "Flay",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/bobby-flay",
+        "PopularRecipe": "Silver Dollar Tropical Pancakes with Mascarpone Whipped Cream",
+        "FlavorProfile": "American"
+    },
+    "Brian Boitano": {
+        "FirstName": "Brian",
+        "LastName": "Boitano",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/brian-boitano",
+        "PopularRecipe": "Pork Steamed Buns",
+        "FlavorProfile": "Innovative"
+    },
+    "Buddy Valastro": {
+        "FirstName": "Buddy",
+        "LastName": "Valastro",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/buddy-valastro",
+        "PopularRecipe": "Red Velvet Cake",
+        "FlavorProfile": "Sweet Treats"
+    },
+    "Cameron Mathison": {
+        "FirstName": "Cameron",
+        "LastName": "Mathison",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/cameron-mathison",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Camila Alves": {
+        "FirstName": "Camila",
+        "LastName": "Alves",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/camila-alves",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Carla Hall": {
+        "FirstName": "Carla",
+        "LastName": "Hall",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/carla-hall",
+        "PopularRecipe": "Creamy Mascarpone Herb Grits",
+        "FlavorProfile": "Southern Comfort"
+    },
+    "Cat Cora": {
+        "FirstName": "Cat",
+        "LastName": "Cora",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/cat-cora",
+        "PopularRecipe": "Southern Cornbread",
+        "FlavorProfile": "Misc."
+    },
+    "Charles Phoenix": {
+        "FirstName": "Charles",
+        "LastName": "Phoenix",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/charles-phoenix",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Charles Stiles": {
+        "FirstName": "Charles",
+        "LastName": "Stiles",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/charles-stiles",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Chris Cognac": {
+        "FirstName": "Chris",
+        "LastName": "Cognac",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/chris-cognac",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Chris Cosentino": {
+        "FirstName": "Chris",
+        "LastName": "Cosentino",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/chris-cosentino",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Chris Santos": {
+        "FirstName": "Chris",
+        "LastName": "Santos",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/chris-santos",
+        "PopularRecipe": "Deconstructed Mexican Style Corn",
+        "FlavorProfile": "Innovative"
+    },
+    "Claire Robinson": {
+        "FirstName": "Claire",
+        "LastName": "Robinson",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/claire-robinson",
+        "PopularRecipe": "5 Ingredient Dishes",
+        "FlavorProfile": "Home-Cooking"
+    },
+    "Curtis Stone": {
+        "FirstName": "Curtis",
+        "LastName": "Stone",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/curtis-stone",
+        "PopularRecipe": "Rib-Eye Steak with Caponata",
+        "FlavorProfile": "Home-Cooking"
+    },
+    "Daisy Martinez": {
+        "FirstName": "Daisy",
+        "LastName": "Martinez",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/daisy-martinez",
+        "PopularRecipe": "Chocolate-Chile Cake",
+        "FlavorProfile": "Latin"
+    },
+    "Damaris Phillips": {
+        "FirstName": "Damaris",
+        "LastName": "Phillips",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/damaris-phillips",
+        "PopularRecipe": "Linguini Bolognese with Pancetta, Beef, Tomato Sauce, Herbs and Parmesan",
+        "FlavorProfile": "Southern Comfort"
+    },
+    "Danny Boome": {
+        "FirstName": "Danny",
+        "LastName": "Boome",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/danny-boome",
+        "PopularRecipe": "Lychee Martini",
+        "FlavorProfile": "Healthy"
+    },
+    "Daphne Brogdon": {
+        "FirstName": "Daphne",
+        "LastName": "Brogdon",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/daphne-brogdon",
+        "PopularRecipe": "The Best Cauliflower Ever",
+        "FlavorProfile": "Home-Cooking"
+    },
+    "Dave Lieberman": {
+        "FirstName": "Dave",
+        "LastName": "Lieberman",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/dave-lieberman",
+        "PopularRecipe": "Moroccan Spiced Chickpea Soup",
+        "FlavorProfile": "Home-Cooking"
+    },
+    "David Bull": {
+        "FirstName": "David",
+        "LastName": "Bull",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/david-bull",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Dean McDermott": {
+        "FirstName": "Dean",
+        "LastName": "McDermott",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/dean-mcdermott",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Donatella Arpaia": {
+        "FirstName": "Donatella",
+        "LastName": "Arpaia",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/donatella-arpaia",
+        "PopularRecipe": "Jarred Tomatoes",
+        "FlavorProfile": "Home-Cooking"
+    },
+    "Duff Goldman": {
+        "FirstName": "Duff",
+        "LastName": "Goldman",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/duff-goldman",
+        "PopularRecipe": "Pumpkin Cake",
+        "FlavorProfile": "Sweet Treats"
+    },
+    "Eddie Jackson": {
+        "FirstName": "Eddie",
+        "LastName": "Jackson",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/eddie-jackson",
+        "PopularRecipe": "Eddie's Grilled Shrimp and Roasted Red Pepper Salad",
+        "FlavorProfile": "Healthy"
+    },
+    "Ellie Krieger": {
+        "FirstName": "Ellie",
+        "LastName": "Krieger",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/ellie-krieger",
+        "PopularRecipe": "Mango Salsa",
+        "FlavorProfile": "Healthy"
+    },
+    "Emeril Lagasse": {
+        "FirstName": "Emeril",
+        "LastName": "Lagasse",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/emeril-lagasse",
+        "PopularRecipe": "Chicken and Smoked Sausage Gumbo",
+        "FlavorProfile": "Misc."
+    },
+    "Food Network Kitchen": {
+        "FirstName": "Food",
+        "LastName": "Network Kitchen",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/food-network-kitchen",
+        "PopularRecipe": "Chicken Spaghetti Squash",
+        "FlavorProfile": "Misc."
+    },
+    "Geoffrey Zakarian": {
+        "FirstName": "Geoffrey",
+        "LastName": "Zakarian",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/geoffrey-zakarian",
+        "PopularRecipe": "Greek Salad",
+        "FlavorProfile": "Modern American"
+    },
+    "George Duran": {
+        "FirstName": "George",
+        "LastName": "Duran",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/george-duran",
+        "PopularRecipe": "Classic French Mussels",
+        "FlavorProfile": "Global Cuisine"
+    },
+    "Gesine Prado": {
+        "FirstName": "Gesine",
+        "LastName": "Prado",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/gesine-prado",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Giada De Laurentiis": {
+        "FirstName": "Giada",
+        "LastName": "De Laurentiis",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/giada-de-laurentiis",
+        "PopularRecipe": "Pork Chop Agrodolce",
+        "FlavorProfile": "Italian"
+    },
+    "Graham Elliot": {
+        "FirstName": "Graham",
+        "LastName": "Elliot",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/graham-elliot",
+        "PopularRecipe": "Fried Scrapple and Egg Sandwich",
+        "FlavorProfile": "Misc."
+    },
+    "Guy Fieri": {
+        "FirstName": "Guy",
+        "LastName": "Fieri",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/guy-fieri",
+        "PopularRecipe": "Crab Boil",
+        "FlavorProfile": "American"
+    },
+    "Hannah Hart": {
+        "FirstName": "Hannah",
+        "LastName": "Hart",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/hannah-hart",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Heather Ramsdell": {
+        "FirstName": "Heather",
+        "LastName": "Ramsdell",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/food-network-kitchen/heather-ramsdell-bio",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Ina Garten": {
+        "FirstName": "Ina",
+        "LastName": "Garten",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/ina-garten",
+        "PopularRecipe": "Mac and Cheese",
+        "FlavorProfile": "Home-Cooking"
+    },
+    "Ingrid Hoffmann": {
+        "FirstName": "Ingrid",
+        "LastName": "Hoffmann",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/ingrid-hoffmann",
+        "PopularRecipe": "Yucca Buns (Pan de Yucca)",
+        "FlavorProfile": "Misc."
+    },
+    "Jack Hourigan": {
+        "FirstName": "Jack",
+        "LastName": "Hourigan",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/jack-hourigan",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Jamie Deen": {
+        "FirstName": "Jamie",
+        "LastName": "Deen",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/jamie-deen",
+        "PopularRecipe": "Dry Rub Baby Back Ribs",
+        "FlavorProfile": "BBQ"
+    },
+    "Jamie Oliver": {
+        "FirstName": "Jamie",
+        "LastName": "Oliver",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/jamie-oliver",
+        "PopularRecipe": "Pan-Fried Partridge with a Delicate Pearl Barley, Pea and Lettuce Stew",
+        "FlavorProfile": "Healthy"
+    },
+    "Janet Johnston": {
+        "FirstName": "Janet",
+        "LastName": "Johnston",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/janet-johnston",
+        "PopularRecipe": "Strawberry Milkshake",
+        "FlavorProfile": "Home-Cooked"
+    },
+    "Jeff Corwin": {
+        "FirstName": "Jeff",
+        "LastName": "Corwin",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/jeff-corwin",
+        "PopularRecipe": "Thai Green Papaya Salad (Som Tum) with Grilled Thai Shrimp",
+        "FlavorProfile": "Latin"
+    },
+    "Jeff Dunham": {
+        "FirstName": "Jeff",
+        "LastName": "Dunham",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/jeff-dunham",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Jeff Henderson": {
+        "FirstName": "Jeff",
+        "LastName": "Henderson",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/jeff-henderson",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Jeff Mauro": {
+        "FirstName": "Jeff",
+        "LastName": "Mauro",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/jeff-mauro",
+        "PopularRecipe": "Mauro's Muffaletta",
+        "FlavorProfile": "Misc."
+    },
+    "Jesse Palmer": {
+        "FirstName": "Jesse",
+        "LastName": "Palmer",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/jesse-palmer",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Jet Tila": {
+        "FirstName": "Jet",
+        "LastName": "Tila",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/jet-tila",
+        "PopularRecipe": "My Famous Drunken Noodles",
+        "FlavorProfile": "East Asian"
+    },
+    "Jim O'Connor": {
+        "FirstName": "Jim",
+        "LastName": "O'Connor",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/jim-oconnor",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Joey Fatone": {
+        "FirstName": "Joey",
+        "LastName": "Fatone",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/joey-fatone",
+        "PopularRecipe": "\"Smiling\" Grilled Cheese",
+        "FlavorProfile": "American"
+    },
+    "John Henson": {
+        "FirstName": "John",
+        "LastName": "Henson",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/john-henson",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Jonathan Bennett": {
+        "FirstName": "Jonathan",
+        "LastName": "Bennett",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/jonathan-bennett",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Jose Garces": {
+        "FirstName": "Jose",
+        "LastName": "Garces",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/jose-garces",
+        "PopularRecipe": "Salsa Roja",
+        "FlavorProfile": "Latin"
+    },
+    "Josh Denny": {
+        "FirstName": "Josh",
+        "LastName": "Denny",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/josh-denny",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Judy Joo": {
+        "FirstName": "Judy",
+        "LastName": "Joo",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/judy-joo",
+        "PopularRecipe": "Spicy Pork Belly Cheesesteak",
+        "FlavorProfile": "Misc."
+    },
+    "Justin Warner": {
+        "FirstName": "Justin",
+        "LastName": "Warner",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/justin-warner",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Justin Willman": {
+        "FirstName": "Justin",
+        "LastName": "Willman",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/justin-willman",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Katie Lee": {
+        "FirstName": "Katie",
+        "LastName": "Lee",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/katie-lee",
+        "PopularRecipe": "Black Bean and Kale Soup",
+        "FlavorProfile": "Misc."
+    },
+    "Keegan Gerhard": {
+        "FirstName": "Keegan",
+        "LastName": "Gerhard",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/keegan-gerhard",
+        "PopularRecipe": "Meringue",
+        "FlavorProfile": "Sweet Treats"
+    },
+    "Keith Simpson": {
+        "FirstName": "Keith",
+        "LastName": "Simpson",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/keith-simpson",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Kerry Vincent": {
+        "FirstName": "Kerry",
+        "LastName": "Vincent",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/kerry-vincent",
+        "PopularRecipe": "Rosella Ginger Pecan Torte: Wedding Cake Recipe",
+        "FlavorProfile": "Sweet Treats"
+    },
+    "Kevin Brauch": {
+        "FirstName": "Kevin",
+        "LastName": "Brauch",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/kevin-brauch",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Lorraine Pascale": {
+        "FirstName": "Lorraine",
+        "LastName": "Pascale",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/lorraine-pascale",
+        "PopularRecipe": "Apple Berry Pie",
+        "FlavorProfile": "Home-Cooking"
+    },
+    "Maneet Chauhan": {
+        "FirstName": "Maneet",
+        "LastName": "Chauhan",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/maneet-chauhan",
+        "PopularRecipe": "Cranberry-Ginger Five-Spice Chutney",
+        "FlavorProfile": "South Asian"
+    },
+    "Marc Forgione": {
+        "FirstName": "Marc",
+        "LastName": "Forgione",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/marc-forgione",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Marc Murphy": {
+        "FirstName": "Marc",
+        "LastName": "Murphy",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/marc-murphy",
+        "PopularRecipe": "Grilled Mushroom Flatbread with Truffled Pecorino",
+        "FlavorProfile": "Modern American"
+    },
+    "Marc Summers": {
+        "FirstName": "Marc",
+        "LastName": "Summers",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/marc-summers",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Marcela Valladolid": {
+        "FirstName": "Marcela",
+        "LastName": "Valladolid",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/marcela-valladolid",
+        "PopularRecipe": "Lemon-Herb Grilled Chicken with Apple, Celery and Snap Pea Slaw",
+        "FlavorProfile": "Latin"
+    },
+    "Marcus Samuelsson": {
+        "FirstName": "Marcus",
+        "LastName": "Samuelsson",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/marcus-samuelsson",
+        "PopularRecipe": "Tuna Lobster Roll with Curry Granita",
+        "FlavorProfile": "Misc."
+    },
+    "Mario Batali": {
+        "FirstName": "Mario",
+        "LastName": "Batali",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/mario-batali",
+        "PopularRecipe": "Zuppa di Raffano",
+        "FlavorProfile": "Italian"
+    },
+    "Mark Dacascos": {
+        "FirstName": "Mark",
+        "LastName": "Dacascos",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/mark-dacascos",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Mary Nolan": {
+        "FirstName": "Mary",
+        "LastName": "Nolan",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/mary-nolan",
+        "PopularRecipe": "Spicy Cocktail Meatballs",
+        "FlavorProfile": "Everyday"
+    },
+    "Masaharu Morimoto": {
+        "FirstName": "Masaharu",
+        "LastName": "Morimoto",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/masaharu-morimoto",
+        "PopularRecipe": "Vegetable Sushi",
+        "FlavorProfile": "East Asian"
+    },
+    "Melissa d'Arabian": {
+        "FirstName": "Melissa",
+        "LastName": "d'Arabian",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/melissa-darabian",
+        "PopularRecipe": "Cheesy Stuffed Shells",
+        "FlavorProfile": "Healthy"
+    },
+    "Michael Chiarello": {
+        "FirstName": "Michael",
+        "LastName": "Chiarello",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/michael-chiarello",
+        "PopularRecipe": "Homemade Pappardelle",
+        "FlavorProfile": "Italian"
+    },
+    "Michael Symon": {
+        "FirstName": "Michael",
+        "LastName": "Symon",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/michael-symon",
+        "PopularRecipe": "Baklava",
+        "FlavorProfile": "Misc."
+    },
+    "Monti Carlo": {
+        "FirstName": "Monti",
+        "LastName": "Carlo",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/monti-carlo",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Nancy Fuller": {
+        "FirstName": "Nancy",
+        "LastName": "Fuller",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/nancy-fuller",
+        "PopularRecipe": "Peanut Butter Bars with Salted Chocolate Ganache",
+        "FlavorProfile": "Southern Comfort"
+    },
+    "Natalieand Dave Sideserf": {
+        "FirstName": "Natalieand Dave",
+        "LastName": "Sideserf",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/natalie-and-dave-sideserf",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Nigella Lawson": {
+        "FirstName": "Nigella",
+        "LastName": "Lawson",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/nigella-lawson",
+        "PopularRecipe": "Allspice Gravy",
+        "FlavorProfile": "Home-Cooking"
+    },
+    "Patricia Heaton": {
+        "FirstName": "Patricia",
+        "LastName": "Heaton",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/patricia-heaton",
+        "PopularRecipe": "Classic Cheese Fondue",
+        "FlavorProfile": "American"
+    },
+    "Patrick \"Pat\" LaFrieda Jr.": {
+        "FirstName": "Patrick",
+        "LastName": "\"Pat\" LaFrieda Jr.",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/patrick-pat-lafrieda-jr",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Paula Deen": {
+        "FirstName": "Paula",
+        "LastName": "Deen",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/paula-deen",
+        "PopularRecipe": "Upside-Down Apple Praline Cake",
+        "FlavorProfile": "Southern"
+    },
+    "Rachael Ray": {
+        "FirstName": "Rachael",
+        "LastName": "Ray",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/rachael-ray",
+        "PopularRecipe": "Spaghetti and Meatballs",
+        "FlavorProfile": "Everyday"
+    },
+    "Rahm Fama": {
+        "FirstName": "Rahm",
+        "LastName": "Fama",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/rahm-fama",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Ree Drummond": {
+        "FirstName": "Ree",
+        "LastName": "Drummond",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/ree-drummond",
+        "PopularRecipe": "Spatchcock Chicken Sheet Pan Supper",
+        "FlavorProfile": "Southern Comfort"
+    },
+    "Richard Blais": {
+        "FirstName": "Richard",
+        "LastName": "Blais",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/richard-blais",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Robert Irvine": {
+        "FirstName": "Robert",
+        "LastName": "Irvine",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/robert-irvine",
+        "PopularRecipe": "Red Beans and Rice",
+        "FlavorProfile": "American"
+    },
+    "Robin Miller": {
+        "FirstName": "Robin",
+        "LastName": "Miller",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/robin-miller",
+        "PopularRecipe": "Slow Cooker Sweet and Sour Pork",
+        "FlavorProfile": "Everyday"
+    },
+    "Roger Mooking": {
+        "FirstName": "Roger",
+        "LastName": "Mooking",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/roger-mooking",
+        "PopularRecipe": "Mango Lassi",
+        "FlavorProfile": "Global Cuisine"
+    },
+    "Ron Ben-Israel": {
+        "FirstName": "Ron",
+        "LastName": "Ben-Israel",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/ron-ben-israel",
+        "PopularRecipe": "Chocolate Stout Cupcakes with Gingerbread-Spice Swiss Buttercream",
+        "FlavorProfile": "Sweet Treats"
+    },
+    "Rossi Morreale": {
+        "FirstName": "Rossi",
+        "LastName": "Morreale",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/rossi-morreale",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Sandra Lee": {
+        "FirstName": "Sandra",
+        "LastName": "Lee",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/sandra-lee",
+        "PopularRecipe": "Grasshopper Ice Cream Cocktail",
+        "FlavorProfile": "American"
+    },
+    "Scott Conant": {
+        "FirstName": "Scott",
+        "LastName": "Conant",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/scott-conant",
+        "PopularRecipe": "Potato Gnocchi with Heirloom Baby Tomato Sauce",
+        "FlavorProfile": "Italian"
+    },
+    "Sherry Yard": {
+        "FirstName": "Sherry",
+        "LastName": "Yard",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/sherry-yard",
+        "PopularRecipe": "Master Ganache",
+        "FlavorProfile": "Sweet Treats"
+    },
+    "Simon Majumdar": {
+        "FirstName": "Simon",
+        "LastName": "Majumdar",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/simon-majumdar",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Stephanie Izard": {
+        "FirstName": "Stephanie",
+        "LastName": "Izard",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/stephanie-izard",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Sunny Anderson": {
+        "FirstName": "Sunny",
+        "LastName": "Anderson",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/sunny-anderson",
+        "PopularRecipe": "Pork-Stuffed Collard Greens",
+        "FlavorProfile": "Southern Comfort"
+    },
+    "Ted Allen": {
+        "FirstName": "Ted",
+        "LastName": "Allen",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/ted-allen",
+        "PopularRecipe": "Classic Manhattan Cocktail",
+        "FlavorProfile": "American"
+    },
+    "The Dunhams": {
+        "FirstName": "The",
+        "LastName": "Dunhams",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/jeff-and-audrey-dunham",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "The Hearty Boys": {
+        "FirstName": "The",
+        "LastName": "Hearty Boys",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/the-hearty-boys",
+        "PopularRecipe": "French Country Tart Variations",
+        "FlavorProfile": "Innovative"
+    },
+    "The Neelys": {
+        "FirstName": "The",
+        "LastName": "Neelys",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/patrick-and-gina-neely",
+        "PopularRecipe": "Gina's Homemade Lemonade",
+        "FlavorProfile": "BBQ"
+    },
+    "Tia Mowry": {
+        "FirstName": "Tia",
+        "LastName": "Mowry",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/tia-mowry",
+        "PopularRecipe": "Shakshuka",
+        "FlavorProfile": "Everyday"
+    },
+    "Tom Pizzica": {
+        "FirstName": "Tom",
+        "LastName": "Pizzica",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/tom-pizzica",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Tregaye Fraser": {
+        "FirstName": "Tregaye",
+        "LastName": "Fraser",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/tregaye-fraser",
+        "PopularRecipe": "Inside-Out Burger with Mushrooms",
+        "FlavorProfile": "Innovative"
+    },
+    "Trisha Yearwood": {
+        "FirstName": "Trisha",
+        "LastName": "Yearwood",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/trisha-yearwood",
+        "PopularRecipe": "Roasted Tomato, Ricotta and Basil Crostini",
+        "FlavorProfile": "Southern Comfort"
+    },
+    "Ty Pennington": {
+        "FirstName": "Ty",
+        "LastName": "Pennington",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/ty-pennington",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Tyler Florence": {
+        "FirstName": "Tyler",
+        "LastName": "Florence",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/tyler-florence",
+        "PopularRecipe": "French Onion Soup",
+        "FlavorProfile": "Home-Cooking"
+    },
+    "Valerie Bertinelli": {
+        "FirstName": "Valerie",
+        "LastName": "Bertinelli",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/valerie-bertinelli",
+        "PopularRecipe": "Crispy Un-Fried Chicken",
+        "FlavorProfile": "Misc."
+    },
+    "Vincent Camillo": {
+        "FirstName": "Vincent",
+        "LastName": "Camillo",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/food-network-kitchen/vincent-camillo-bio",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Warren Brown": {
+        "FirstName": "Warren",
+        "LastName": "Brown",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/warren-brown",
+        "PopularRecipe": "Apple Cobbler",
+        "FlavorProfile": "Sweet Treats"
+    },
+    "Willie Degel": {
+        "FirstName": "Willie",
+        "LastName": "Degel",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/willie-degel",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Zac Young": {
+        "FirstName": "Zac",
+        "LastName": "Young",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/zac-young",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Adam and Andrew Erace": {
+        "FirstName": "Adam and Andrew",
+        "LastName": "Erace",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/adam-and-andrew-erace",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    },
+    "Natalie and Dave Sideserf": {
+        "FirstName": "Natalie and Dave",
+        "LastName": "Sideserf",
+        "ChefUrl": "https://www.foodnetwork.com/profiles/talent/natalie-and-dave-sideserf",
+        "PopularRecipe": "N/A",
+        "FlavorProfile": "N/A"
+    }
+}
