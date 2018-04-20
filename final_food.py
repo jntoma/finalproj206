@@ -141,19 +141,19 @@ except:
 
 def get_spotify_token(url, auth):
     params = {'grant_type': grant_type}
-    if url in CACHE_DICTION:
-        access_token = CACHE_DICTION[url][17:100]
-        return access_token
-    else:
-        resp = requests.post(url, data=params, auth=auth)
-        resp_data = json.loads(resp.text)
-        access_token = resp_data["access_token"]
-        CACHE_DICTION[url] = resp.text
-        dumped_json_cache = json.dumps(CACHE_DICTION)
-        fw = open(CACHE_FNAME,"w")
-        fw.write(dumped_json_cache)
-        fw.close()
-        return access_token
+    # if url in CACHE_DICTION:
+    #     access_token = CACHE_DICTION[url][17:100]
+    #     return access_token
+    # else:
+    resp = requests.post(url, data=params, auth=auth)
+    resp_data = json.loads(resp.text)
+    access_token = resp_data["access_token"]
+    CACHE_DICTION[url] = resp.text
+    dumped_json_cache = json.dumps(CACHE_DICTION)
+    fw = open(CACHE_FNAME,"w")
+    fw.write(dumped_json_cache)
+    fw.close()
+    return access_token
 
 def make_request_using_cache(url, headers=None):
     if url in CACHE_DICTION:
@@ -178,6 +178,7 @@ def get_spotify_playlist(search_term):
     authorization_header = {"Authorization":"Bearer {}".format(access_token)}
     response_string = make_request_using_cache(url, authorization_header)
     response = json.loads(response_string)
+    print(response_string)
     num = 0
     spotify_list = []
     for r in response:
@@ -193,6 +194,7 @@ def get_spotify_playlist(search_term):
         response = input("Please enter 'party', 'term', or 'graph': ")
     if response == 'party':
         print("Bye! Have fun!")
+        exit()
     elif response == 'graph':
         bar_graph_spotify(spotify_list)
         print("Alright! Time for you to go throw the best party out there! See you later!")
@@ -627,6 +629,7 @@ def flavors():
     flavors = ["American", "BBQ", "East Asian", "Everyday", "Global Cuisine", "Healthy",
     "Home-Cooking","Innovative","Italian","Latin","Misc.","Modern American",
     "Rustic","Southern Comfort","South Asian","Sweet Treats","Trad. Home-Cooking", "exit"]
+    one_two = ["1", "2", "exit"]
 
     print("Here are the flavors we've put together for your absolutely amazing party: \n"
     "American       BBQ                East Asian\n"
@@ -648,6 +651,21 @@ def flavors():
     for f in flavor_chef:
         num_chef +=1
         print(str(num_chef) + ". " + f)
+    print("Cool! So you've got a couple of options now! Path 1: You can choose a chef to look at or we can give you"
+    "a dish from this flavor! Path 2: You can open a plotly pie chart showing the amount of recipes"
+    "each of these chefs have! Which one do you want to do?")
+    response = str(input("Enter '1' or '2' for either path: "))
+    while response not in one_two:
+        response = input("Enter '1' or '2' for either path: ")
+    if response == '1':
+        chef_dish(flavor_chef)
+    elif response == '2':
+        pie_chart(flavor_chef)
+        print("Alright now let's choose a chef/dish!")
+        chef_dish(flavor_chef)
+    elif response == 'exit':
+        print("Bye! Hope your party's a blast!")
+        exit()
     return flavor_chef
 
 def chef_dish(flavor_chef):
@@ -761,8 +779,8 @@ def chef(name):
         elif response == 'flavor':
             flavor_chef = flavors()
             print("Cool! So you've got a couple of options now! Path 1: You can choose a chef to look at or we can give you"
-            "a dish from this flavor! Path 2: You can open a plotly pie chart showing the amount of recipes"
-            "each of these chefs have! Which one do you want to do?")
+            " a dish from this flavor! Path 2: You can open a plotly pie chart showing the amount of recipes"
+            " each of these chefs have! Which one do you want to do?")
             response = str(input("Enter '1' or '2' for either path: "))
             while response not in one_two:
                 response = input("Enter '1' or '2' for either path: ")
@@ -859,25 +877,11 @@ def interactive_prompt():
         exit()
     print("Yea, we think so too. Let's get started.")
     flavor_chef = flavors()
-    print("Cool! So you've got a couple of options now! Path 1: You can choose a chef to look at or we can give you"
-    "a dish from this flavor! Path 2: You can open a plotly pie chart showing the amount of recipes"
-    "each of these chefs have! Which one do you want to do?")
-    response = str(input("Enter '1' or '2' for either path: "))
-    while response not in one_two:
-        response = input("Enter '1' or '2' for either path: ")
-    if response == '1':
-        chef_dish(flavor_chef)
-    elif response == '2':
-        pie_chart(flavor_chef)
-        print("Alright now let's choose a chef/dish!")
-        chef_dish(flavor_chef)
-    elif response == 'exit':
-        print("Bye! Hope your party's a blast!")
-        exit()
 
 
 if __name__=="__main__":
     #get_dish_info()
     #init_db()
     #insert_data()
-    interactive_prompt()
+    #interactive_prompt()
+    get_spotify_playlist("country")
