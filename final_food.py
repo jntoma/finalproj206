@@ -180,30 +180,27 @@ def get_spotify_playlist(search_term):
     response = json.loads(response_string)
     num = 0
     spotify_list = []
-    try:
-        for r in response:
-            for i in range(5):
-                num += 1
-                spotify_list.append((response[r]["items"][i]["name"], str(response[r]["items"][i]["tracks"]["total"])))
-                print(str(num) + ". " + response[r]["items"][i]["name"] + " --- " + str(response[r]["items"][i]["tracks"]["total"]))
-        print("Do you want to see a bar graph comparing these playlist's lengths,"
-        "look up another term, or"
-        " do you want to go start throwing your awesome party?")
+    for r in response:
+        for i in range(5):
+            num += 1
+            spotify_list.append((response[r]["items"][i]["name"], str(response[r]["items"][i]["tracks"]["total"])))
+            print(str(num) + ". " + response[r]["items"][i]["name"] + " --- " + str(response[r]["items"][i]["tracks"]["total"]))
+    print("Do you want to see a bar graph comparing these playlist's lengths,"
+    "look up another term, or"
+    " do you want to go start throwing your awesome party?")
+    response = input("Please enter 'party', 'term', or 'graph': ")
+    while response not in end:
         response = input("Please enter 'party', 'term', or 'graph': ")
-        while response not in end:
-            response = input("Please enter 'party', 'term', or 'graph': ")
-        if response == 'party':
-            print("Bye! Have fun!")
-            exit()
-        elif response == 'graph':
-            bar_graph_spotify(spotify_list)
-            print("Alright! Time for you to go throw the best party out there! See you later!")
-        elif response == 'term':
-            response = input("Please enter a new search term! ")
-            get_spotify_playlist(response)
-    except:
-        print(response_string + " Sorry! This went wrong")
+    if response == 'party':
+        print("Bye! Have fun!")
         exit()
+    elif response == 'graph':
+        bar_graph_spotify(spotify_list)
+        print("Alright! Time for you to go throw the best party out there! See you later!")
+        exit()
+    elif response == 'term':
+        response = input("Please enter a new search term! ")
+        get_spotify_playlist(response)
     return spotify_list
 
 
@@ -702,6 +699,7 @@ def chef_dish(flavor_chef):
 def dish(kind):
     music_flavor = ["music", "flavor"]
     yes_no = ["yes", "no", "exit"]
+    one_two = ["1", "2", "exit"]
     print("-"*15, "\n", "A ", kind, "DISH" "\n", "-"*15)
     dish = process_dish(kind)
     for d in dish:
@@ -886,5 +884,5 @@ if __name__=="__main__":
     #get_dish_info()
     #init_db()
     #insert_data()
-    #interactive_prompt()
-    get_spotify_playlist("country")
+    interactive_prompt()
+    #get_spotify_playlist("country")
