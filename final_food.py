@@ -178,29 +178,32 @@ def get_spotify_playlist(search_term):
     authorization_header = {"Authorization":"Bearer {}".format(access_token)}
     response_string = make_request_using_cache(url, authorization_header)
     response = json.loads(response_string)
-    print(response_string)
     num = 0
     spotify_list = []
-    for r in response:
-        for i in range(5):
-            num += 1
-            spotify_list.append((response[r]["items"][i]["name"], str(response[r]["items"][i]["tracks"]["total"])))
-            print(str(num) + ". " + response[r]["items"][i]["name"] + " --- " + str(response[r]["items"][i]["tracks"]["total"]))
-    print("Do you want to see a bar graph comparing these playlist's lengths,"
-    "look up another term, or"
-    " do you want to go start throwing your awesome party?")
-    response = input("Please enter 'party', 'term', or 'graph': ")
-    while response not in end:
+    try:
+        for r in response:
+            for i in range(5):
+                num += 1
+                spotify_list.append((response[r]["items"][i]["name"], str(response[r]["items"][i]["tracks"]["total"])))
+                print(str(num) + ". " + response[r]["items"][i]["name"] + " --- " + str(response[r]["items"][i]["tracks"]["total"]))
+        print("Do you want to see a bar graph comparing these playlist's lengths,"
+        "look up another term, or"
+        " do you want to go start throwing your awesome party?")
         response = input("Please enter 'party', 'term', or 'graph': ")
-    if response == 'party':
-        print("Bye! Have fun!")
+        while response not in end:
+            response = input("Please enter 'party', 'term', or 'graph': ")
+        if response == 'party':
+            print("Bye! Have fun!")
+            exit()
+        elif response == 'graph':
+            bar_graph_spotify(spotify_list)
+            print("Alright! Time for you to go throw the best party out there! See you later!")
+        elif response == 'term':
+            response = input("Please enter a new search term! ")
+            get_spotify_playlist(response)
+    except:
+        print(response_string + " Sorry! This went wrong")
         exit()
-    elif response == 'graph':
-        bar_graph_spotify(spotify_list)
-        print("Alright! Time for you to go throw the best party out there! See you later!")
-    elif response == 'term':
-        response = input("Please enter a new search term! ")
-        get_spotify_playlist(response)
     return spotify_list
 
 
