@@ -8,6 +8,9 @@ import sqlite3
 import csv
 import base64
 import itertools
+import plotly.plotly as py
+import plotly.graph_objs as go
+import webbrowser
 
 spotifybase = "https://accounts.spotify.com/api/token"
 spotifyplay = "https://api.spotify.com/v1/search"
@@ -154,10 +157,8 @@ def get_spotify_token(url, auth):
 
 def make_request_using_cache(url, headers=None):
     if url in CACHE_DICTION:
-        print("Getting Cached Data " + url)
         return CACHE_DICTION[url]
     else:
-        print("Getting new data" + " " + url)
         if headers is None:
             resp = requests.get(url)
         else:
@@ -170,15 +171,35 @@ def make_request_using_cache(url, headers=None):
         return CACHE_DICTION[url]
 
 def get_spotify_playlist(search_term):
+    end = ["party", "graph", "term"]
     params = {'q': search_term}
     url = "{}?type=playlist&limit=5&q=".format(spotifyplay) + search_term
     access_token = get_spotify_token(spotifybase, auth)
     authorization_header = {"Authorization":"Bearer {}".format(access_token)}
-    response = make_request_using_cache(url, authorization_header)
+    response_string = make_request_using_cache(url, authorization_header)
+    response = json.loads(response_string)
     num = 0
+    spotify_list = []
     for r in response:
-        num += 1
-        print(str(num) + ". " + r["name"] + " " + str(r["tracks"][1])
+        for i in range(5):
+            num += 1
+            spotify_list.append((response[r]["items"][i]["name"], str(response[r]["items"][i]["tracks"]["total"])))
+            print(str(num) + ". " + response[r]["items"][i]["name"] + " --- " + str(response[r]["items"][i]["tracks"]["total"]))
+    print("Do you want to see a bar graph comparing these playlist's lengths,"
+    "look up another term, or"
+    " do you want to go start throwing your awesome party?")
+    response = input("Please enter 'party', 'term', or 'graph': ")
+    while response not in end:
+        response = input("Please enter 'party', 'term', or 'graph': ")
+    if response == 'party':
+        print("Bye! Have fun!")
+    elif response == 'graph':
+        bar_graph_spotify(spotify_list)
+        print("Alright! Time for you to go throw the best party out there! See you later!")
+    elif response == 'term':
+        response = input("Please enter a new search term! ")
+        get_spotify_playlist(response)
+    return spotify_list
 
 
 def init_db():
@@ -269,7 +290,6 @@ class Dish:
             level = level_all.find(class_ = "o-RecipeInfo__a-Description").text
         except:
             level = "Unknown"
-            pass
         try:
             tags = dish_page_soup.find_all(class_ = "o-Capsule__a-Tag a-Tag")
             for t in tags:
@@ -322,6 +342,7 @@ def get_dish_info():
     chefs = get_chef_info()
     dishes_list = []
     for c in chefs:
+        chef_dishes = []
         if c.full_name in flavor_dict:
             dishes_url = c.ChefUrl + "/recipes"
             init_page_text = make_request_using_cache(dishes_url)
@@ -331,61 +352,85 @@ def get_dish_info():
             except:
                 next_button = "No"
             big_list = init_page_soup.find(class_="l-List")
+            ratings_list = []
             try:
                 dish_list = big_list.find_all(class_ = "m-MediaBlock__a-Headline")
-                ratings = big_list.find_all(class_ = "gig-rating-stars")[1]['title']
             except:
-                print(c.full_name)
-            for d in dish_list:
-                dish_name = d.text
-                dish_url = d.find('a')["href"]
-                dish_rating = ""
-                d = Dish(dish_name, dish_url, dish_rating, c.full_name)
-                dishes_list.append(d)
-                dish = {"DishName": d.DishName,
+                pass
+            try:
+                ratings = big_list.find_all(class_ = "gig-rating-stars")['title']
+                for r in ratings:
+                    print(r)
+                ratings_list.append(ratings)
+            except:
+                ratings = "Unknown"
+                ratings_list.append(ratings)
+            try:
+                for d in dish_list:
+                    dish_name = d.text
+                    dish_url = d.find('a')["href"]
+                    dish_rating = "5 out of 5"
+                    d = Dish(dish_name, dish_url, dish_rating, c.full_name)
+                    dishes_list.append(d)
+                    dish = {"DishName": d.DishName,
                     "DishUrl": d.DishUrl,
                     "DishRating": d.Rating,
                     "Type": d.Type,
                     "LevelDifficulty": d.LevelDifficulty}
-                DISH_DICTION[c.full_name] = dish
-            num = 1
-            while next_button != "No":
-                num += 1
-                next_url = dishes_url + "/trending-/p/" + str(num)
-                next_page = make_request_using_cache(next_url)
-                next_page_soup = BeautifulSoup(next_page, 'html.parser')
-                try:
-                    next_button = init_page_soup.find(class_ = "o-Pagination__a-Button o-Pagination__a-NextButton")
-                except:
-                    next_button = "No"
-                big_list = next_page_soup.find(class_="l-List")
-                try:
-                    dish_list = big_list.find_all(class_ = "m-MediaBlock__a-Headline")
-                    ratings = big_list.find_all(class_ = "gig-rating-stars")[1]['title']
-                except:
-                    print(c.full_name)
-                try:
-                    for d, r in zip(dish_list, ratings):
-                        dish_name = d.text
-                        dish_url = d.find('a')["href"]
-                        dish_rating = r
-                        d = Dish(dish_name, dish_url, dish_rating, c.full_name)
-                        dishes_list.append(d)
-                        dish = {"DishName": d.DishName,
-                        "DishUrl": d.DishUrl,
-                        "DishRating": d.Rating,
-                        "Type": d.Type,
-                        "LevelDifficulty": d.LevelDifficulty}
-                        DISH_DICTION[c.full_name] = dish
-                except:
-                    pass
-                if num == 2:
-                    break
-                try:
-                    next_button = next_page_soup.find(class_ = "o-Pagination__a-Button o-Pagination__a-NextButton").text
-                except:
-                    next_button = "No"
-    print(dishes_list[:30])
+                    chef_dishes.append(dish)
+            except:
+                pass
+            # num = 1
+            # while next_button != "No":
+            #     num += 1
+            #     next_url = dishes_url + "/trending-/p/" + str(num)
+            #     next_page = make_request_using_cache(next_url)
+            #     next_page_soup = BeautifulSoup(next_page, 'html.parser')
+            #     try:
+            #         next_button = init_page_soup.find(class_ = "o-Pagination__a-Button o-Pagination__a-NextButton")
+            #     except:
+            #         next_button = "No"
+            #     big_list = next_page_soup.find(class_="l-List")
+            #     ratings_list = []
+            #     try:
+            #           dish_list = big_list.find_all(class_ = "m-MediaBlock__a-Headline")
+            #     except:
+            #           dish_list = "no dishes"
+            #     try:
+            #           ratings = big_list.find_all(class_ = "gig-rating-stars")['title']
+            #       for r in ratings:
+            #           print(r)
+            #       ratings_list.append(ratings)
+            #     except:
+            #         ratings = "Unknown"
+            #         ratings_list.append(ratings)
+            #     try:
+            #         for d in dish_list:
+            #             dish_name = d.text
+            #             dish_url = d.find('a')["href"]
+            #             dish_rating = ""
+            #             d = Dish(dish_name, dish_url, dish_rating, c.full_name)
+            #             dishes_list.append(d)
+            #             dish = {"DishName": d.DishName,
+            #             "DishUrl": d.DishUrl,
+            #             "DishRating": d.Rating,
+            #             "Type": d.Type,
+            #             "LevelDifficulty": d.LevelDifficulty}
+            #             chef_dishes.append(dish)
+            #     except:
+            #         pass
+            #     if num == 2:
+            #         break
+            #     try:
+            #         next_button = next_page_soup.find(class_ = "o-Pagination__a-Button o-Pagination__a-NextButton").text
+            #     except:
+            #         next_button = "No"
+        DISH_DICTION[c.full_name] = chef_dishes
+    dish_string = json.dumps(DISH_DICTION, indent = 4)
+    fw = open(DISHES,"w")
+    fw.write(dish_string)
+    fw.close()
+    #print(dishes_list[:30])
     return dishes_list
 
 def insert_data():
@@ -394,15 +439,14 @@ def insert_data():
         cur = conn.cursor()
     except Error as e:
         print(e)
-
-    #print('Inserting Data.')
+    #
+    # #print('Inserting Data.')
     with open(CHEFS) as json_data:
         cjson = json.load(json_data)
         for c, d in cjson.items():
             insertion = (None, d["FirstName"], d["LastName"], d["ChefUrl"], d["PopularRecipe"], d["FlavorProfile"])
             statement = 'INSERT INTO "Chefs" '
             statement += 'VALUES (?, ?, ?, ?, ?, ?)'
-            print("inserting data")
             cur.execute(statement, insertion)
 
     chef_dict = {}
@@ -414,41 +458,69 @@ def insert_data():
         chef_dict[full_name] = chef_info[0]
 
 
-        with open(DISHES) as json_data:
-          cjson = json.load(json_data)
-          for c, d in cjson.items():
+    with open(DISHES) as json_data:
+        cjson = json.load(json_data)
+        for c, d in cjson.items():
             full_name = c
-            insertion = (None, d["DishName"], d["DishUrl"], chef_dict[full_name], d["DishRating"], d["Type"], d["LevelDifficulty"])
-            statement = 'INSERT INTO "Dishes" '
-            statement += 'VALUES (?, ?, ?, ?, ?, ?, ?)'
-            cur.execute(statement, insertion)
-
-    cur.execute(statement, insertion)
+            for i in d:
+                insertion = (None, i["DishName"].replace("\n", ""), i["DishUrl"], chef_dict[full_name], i["Type"], i["LevelDifficulty"].replace("\n", ""), i["DishRating"])
+                statement = 'INSERT INTO "Dishes" '
+                statement += 'VALUES (?, ?, ?, ?, ?, ?, ?)'
+                cur.execute(statement, insertion)
 
     conn.commit()
     conn.close()
 
-def process_flavors(command):
+def pie_chart(flavor_chef):
     conn = sqlite3.connect(DBNAME)
     cur = conn.cursor()
-    flavor_chef = []
-    query = '''
-    SELECT FirstName, LastName
-    FROM Chefs
-    WHERE FlavorProfile = {}
-    '''.format(command)
-    chefs = cur.execute(query)
-    for c in chefs:
-        full_name = c[0] + " " + c[1]
-        flavor_chef.append(full_name)
-    return flavor_chef
+    labels = []
+    values = []
+    for f in flavor_chef:
+        labels.append(f)
+        first_name = f.split(" ")[0]
+        second_word = f.split(" ")[1]
+        last_name = f.split(" ")[1:]
+        if len(last_name) == 2:
+            last_name = last_name[0] + " " + last_name [1]
+        elif len(last_name) == 3:
+            last_name = last_name[0] + " " + last_name [1] + " " + last_name [2]
+        else:
+            last_name = last_name[0]
+        if second_word == "and":
+            first_name = f.split(" ")[0] + " and " + f.split(" ")[2]
+            last_name = f.split(" ")[3]
+        query = '''
+        SELECT COUNT(*)
+        FROM Chefs as c
+        JOIN Dishes as d
+        ON c.ID = d.ChefID
+        WHERE c.FirstName = "{}" AND c.LastName = "{}"
+        GROUP BY c.ID
+        '''.format(first_name, last_name)
+        value = cur.execute(query)
+        for v in value:
+            values.append(v[0])
+    trace = go.Pie(labels=labels, values=values)
 
-    conn.close()
+    py.plot([trace], filename='Flavors')
 
-def process_chef(command):
+def bar_graph_spotify(spotify):
+    x = []
+    y = []
+    for w, z in spotify:
+        x.append(w)
+        y.append(z)
+    data = [go.Bar(
+            x = x,
+            y = y
+    )]
+    py.plot(data, filename='bar-Spotify')
+
+def bar_graph_type(command):
     conn = sqlite3.connect(DBNAME)
     cur = conn.cursor()
-    dishes_o_chefs = {}
+    chef_types = {}
     first_name = command.split(" ")[0]
     second_word = command.split(" ")[1]
     last_name = command.split(" ")[1:]
@@ -462,40 +534,99 @@ def process_chef(command):
         first_name = command.split(" ")[0] + " and " + command.split(" ")[2]
         last_name = command.split(" ")[3]
     query = '''
-    SELECT d.DishName, d.DishUrl, d.DishRating, d.Type, d.LevelDifficulty
+    SELECT COUNT(*), d.Type
     FROM Chefs as c
     JOIN Dishes as d
     ON c.ID = d.ChefID
-    WHERE c.FirstName = {} AND c.LastName = {}
+    WHERE c.FirstName = "{}" AND c.LastName = "{}"
+    GROUP BY d.Type
+    '''.format(first_name, last_name)
+    types = cur.execute(query)
+    x = []
+    y = []
+    for t in types:
+        print(t)
+        x.append(t[1])
+        y.append(t[0])
+    data = [go.Bar(
+            x = x,
+            y = y
+    )]
+    py.plot(data, filename='bar-Type')
+
+def process_flavors(command):
+    conn = sqlite3.connect(DBNAME)
+    cur = conn.cursor()
+    flavor_chef = []
+    query = '''
+    SELECT FirstName, LastName
+    FROM Chefs
+    WHERE FlavorProfile = "{}"
+    '''.format(command)
+    chefs = cur.execute(query)
+    for c in chefs:
+        full_name = c[0] + " " + c[1]
+        flavor_chef.append(full_name)
+    return flavor_chef
+    conn.close()
+
+def process_chef(command):
+    conn = sqlite3.connect(DBNAME)
+    cur = conn.cursor()
+    dishes_o_chefs = []
+    first_name = command.split(" ")[0]
+    second_word = command.split(" ")[1]
+    last_name = command.split(" ")[1:]
+    if len(last_name) == 2:
+        last_name = last_name[0] + " " + last_name [1]
+    elif len(last_name) == 3:
+        last_name = last_name[0] + " " + last_name [1] + " " + last_name [2]
+    else:
+        last_name = last_name[0]
+    if second_word == "and":
+        first_name = command.split(" ")[0] + " and " + command.split(" ")[2]
+        last_name = command.split(" ")[3]
+    query = '''
+    SELECT d.DishName, d.DishUrl, d.Rating, d.Type, d.LevelDifficulty
+    FROM Chefs as c
+    JOIN Dishes as d
+    ON c.ID = d.ChefID
+    WHERE c.FirstName = "{}" AND c.LastName = "{}"
     '''.format(first_name, last_name)
     dishes = cur.execute(query)
     for d in dishes:
+        dish = {}
         formatted = d[0] + "--- " + d[3] + ", " + d[2] + ", Level: " + d[4]
-        dishes_o_chefs[d[0]] = [d[1], d[2], d[3], d[4]]
+        dish[d[0]] = [d[1], d[2], d[3], d[4]]
+        dishes_o_chefs.append(dish)
     conn.close()
     return dishes_o_chefs
 
 def process_dish(command):
-    dish = {}
+    conn = sqlite3.connect(DBNAME)
+    cur = conn.cursor()
+    dish = []
     query = '''
-    SELECT d.DishName, d.DishUrl, d.DishRating, d.Type, d.LevelDifficulty
+    SELECT d.DishName, d.DishUrl, d.Rating, d.Type, d.LevelDifficulty
     FROM Chefs as c
     JOIN Dishes as d
     ON c.ID = d.ChefID
-    WHERE d.Type = {}
+    WHERE d.Type = "{}"
     LIMIT 1
     '''.format(command)
     dishes = cur.execute(query)
     for d in dishes:
+        one_dish = {}
         formatted = d[0] + "--- " + d[3] + ", " + d[2] + ", Level: " + d[4]
-        dish[d[0]] = [d[1], d[2], d[3], d[4]]
+        one_dish[d[0]] = [d[1], d[2], d[3], d[4]]
+        dish.append(one_dish)
     conn.close()
     return dish
 
 def flavors():
     flavors = ["American", "BBQ", "East Asian", "Everyday", "Global Cuisine", "Healthy",
     "Home-Cooking","Innovative","Italian","Latin","Misc.","Modern American",
-    "Rustic","Southern Comfort","South Asian","Sweet Treats","Trad. Home-Cooking"]
+    "Rustic","Southern Comfort","South Asian","Sweet Treats","Trad. Home-Cooking", "exit"]
 
     print("Here are the flavors we've put together for your absolutely amazing party: \n"
     "American       BBQ                East Asian\n"
@@ -504,91 +635,167 @@ def flavors():
     "Latin          Misc.              Modern American\n"
     "Rustic         Southern Comfort   South Asian\n"
     "Sweet Treats   Trad. Home-Cooking")
-    response = input("Please enter a single flavor so we can pull up a list"
+    response = input("Please enter a single flavor so we can pull up a list "
     "of chefs from FoodNetwork for you! ")
     while response not in flavors:
         response = input("Whoops! That doesn't look quite right, please try again! ")
+    if response == "exit":
+        print("Bye! Hope your party's a blast!")
+        exit()
     flavor_chef = process_flavors(response)
     num_chef = 0
-    print("-"*15, "\n", "CHEFS WITH A ", response, " FLAVOR", "\n", "-"*15)
+    print("-"*40, "\n", "CHEFS WITH A ", response, " FLAVOR", "\n", "-"*40)
     for f in flavor_chef:
         num_chef +=1
-        print(str(num) + ". " + f)
+        print(str(num_chef) + ". " + f)
     return flavor_chef
 
 def chef_dish(flavor_chef):
-    chef_dish = ["chef", "dish"]
-    kinds = ["snack", "side", "main", "dessert"]
+    chef_dish = ["chef", "dish", "exit"]
+    kinds = ["Snack", "Side Dish", "Main Dish", "Dessert", "exit"]
     response = input("Enter 'chef' or 'dish': ")
     while response not in chef_dish:
         response = input("Please enter 'chef' or 'dish': ")
-    if response == 'chef':
+    if response == "exit":
+        print("Bye! Hope your party's a blast!")
+        exit()
+    elif response == 'chef':
         response = input("Nice! Type in the name of the chef you want to look at: ")
         while response not in flavor_chef:
             response = input("Oops! Did you type that in right? Try again: ")
+        if response == "exit":
+            print("Bye! Hope your party's a blast!")
+            exit()
         chef(response)
     elif response == 'dish':
         print("Solid! Do you want a snack, side, main dish, or dessert?")
-        response = input("Please enter 'snack', 'side', 'main', or 'dessert': ")
-        while response not in types:
+        response = input("Please enter 'Snack', 'Side Dish', 'Main Dish', or 'Dessert': ")
+        while response not in kinds:
             response = input("Oops! Did you type that in right? Try again: ")
+        if response == "exit":
+            print("Bye! Hope your party's a blast!")
+            exit()
         dish(response)
     return 0
 
 def dish(kind):
-    yes_no = ["yes", "no"]
+    music_flavor = ["music", "flavor"]
+    yes_no = ["yes", "no", "exit"]
     print("-"*15, "\n", "A ", kind, "DISH" "\n", "-"*15)
     dish = process_dish(kind)
     for d in dish:
-        formatted = d + "--- " + d[2] + ", " + d[1] + ", Level: " + d[3]
-        print(formatted)
+        for i in d:
+            formatted = i + " --- " + d[i][2] + ", " + d[i][1] + ", Level: " + d[i][3].replace(" ", "")
+            print(formatted)
     print("\n Do you want to go to the url for this dish?")
     response = input("Enter 'yes' to go to the url or enter 'no' to go back to flavors: ")
     while response not in yes_no:
         response = input("Please enter 'yes' or 'no': ")
     if response == "yes":
         for d in dish:
-            url = d[0]
+            url = d[i][0]
             print("Launching " + url + " in browser!")
             webbrowser.open(url)
             print("Are you satisfied with your recipe? Do you want to go look at music?")
-            response = input("Enter 'music' for music or enter 'flavor' to go back to the flavors")
+            response = input("Enter 'music' for music or enter 'flavor' to go back to the flavors ")
             while response not in music_flavor:
                 response = input("Please try again: ")
             if response == 'music':
                 response = input("Enter a search term for Spotify: ")
-                get_spotify_playlist(response)
+                spotify = get_spotify_playlist(response)
+                bar_graph_spotify(spotify)
             elif response == 'flavor':
                 flavor_chef = flavors()
-                chef_dish(flavor_chef)
-    if response == "no":
+                print("Cool! So you've got a couple of options now! Path 1: You can choose a chef to look at or we can give you "
+                " a dish from this flavor! Path 2: You can open a plotly pie chart showing the amount of recipes "
+                " each of these chefs have! Which one do you want to do?")
+                response = str(input("Enter '1' or '2' for either path: "))
+                while response not in one_two:
+                    response = input("Enter '1' or '2' for either path: ")
+                if response == '1':
+                    chef_dish(flavor_chef)
+                if response == '2':
+                    pie_chart(flavor_chef)
+    elif response == "no":
         flavor_chef = flavors()
         chef_dish(flavor_chef)
-return 0
+    elif response == "exit":
+        print("Bye! Hope your party's a blast!")
+        exit()
+    return 0
 
 
 def chef(name):
-    music_flavor = ["music", "flavor"]
+    music_flavor = ["music", "flavor", "exit"]
+    one_two = ["one", "two", "exit"]
     num_chef_dish = 0
-    print("-"*15, "\n", "DISHES BY ", name, "\n", "-"*15)
+    print("-"*30, "\n", "DISHES BY ", name, "\n" + "-"*30)
     dishes_o_chefs = process_chef(name)
     dish_nums = []
     for d in dishes_o_chefs:
-        num_chef_dish += 1
-        formatted = str(num_chef_dish) + ". " + d + "--- " + d[2] + ", " + d[1] + ", Level: " + d[3]
-        print(formatted)
-        dish_nums.append((num_chef_dish - 1, d[0]))
-    response = input("Enter a number to go to that dish's url! Or enter 'flavor' to go back to the flavors! ")
+        for i in d:
+            num_chef_dish += 1
+            formatted = str(num_chef_dish) + ". " + i + " --- " + d[i][2] + ", " + ", Type: " + d[i][1] + ", Level: " + d[i][3].replace(" ", "")
+            print(formatted)
+            dish_nums.append((num_chef_dish - 1, d[i][0]))
+    response = input("Enter a number to go to that dish's url, enter 'flavor' to go back to the flavors, or"
+    "enter 'graph' to see a graph of this chef's number of main, side, snack, and dessert dishes! ")
     if response == "flavor":
         flavor_chef = flavors()
         chef_dish(flavor_chef)
-    elif user_input.isdigit() == True:
-        try:
-            url = dish_nums[int(response-1)][1]
+    elif response.isdigit() == True:
+        # try:
+        url = dish_nums[(int(response)-1)][1]
+        print(url)
+        print("Launching " + url + " in browser!")
+        webbrowser.open(url)
+        # except:
+        #     print("URL Unknown")
+        print("Are you satisfied with your recipe? Do you want to go look at music?")
+        response = input("Enter 'music' for music or enter 'flavor' to go back to the flavors ")
+        while response not in music_flavor:
+            response = input("Please try again: ")
+        if response == 'music':
+            response = input("Enter a search term for Spotify: ")
+            get_spotify_playlist(response)
+        elif response == 'flavor':
+            flavor_chef = flavors()
+            print("Cool! So you've got a couple of options now! Path 1: You can choose a chef to look at or we can give you"
+            "a dish from this flavor! Path 2: You can open a plotly pie chart showing the amount of recipes"
+            "each of these chefs have! Which one do you want to do?")
+            response = str(input("Enter '1' or '2' for either path: "))
+            while response not in one_two:
+                response = input("Enter '1' or '2' for either path: ")
+            if response == '1':
+                chef_dish(flavor_chef)
+            elif response == '2':
+                pie_chart(flavor_chef)
+                print("Great! Let's go look at some chef/dishes from this flavor now!")
+                chef_dish(flavor_chef)
+            elif response == "exit":
+                print("Bye! Hope your party's a blast!")
+                exit()
+        elif response == "exit":
+            print("Bye! Hope your party's a blast!")
+            exit()
+    elif response == 'graph':
+        bar_graph_type(name)
+        print("Nice!")
+        response = input("Enter a number to go to that dish's url, enter 'flavor' to go back to the flavors, or"
+        "enter 'graph' to see a graph of this chef's number of main, side, snack, and dessert dishes! ")
+        if response == "flavor":
+            flavor_chef = flavors()
+            chef_dish(flavor_chef)
+        elif response.isdigit() == True:
+            #try:
+            url = dish_nums[(int(response)-1)][1]
+            print(url)
             print("Launching " + url + " in browser!")
             webbrowser.open(url)
+            # except:
+            #     print("URL Unknown")
             print("Are you satisfied with your recipe? Do you want to go look at music?")
-            response = input("Enter 'music' for music or enter 'flavor' to go back to the flavors")
+            response = input("Enter 'music' for music or enter 'flavor' to go back to the flavors ")
             while response not in music_flavor:
                 response = input("Please try again: ")
             if response == 'music':
@@ -596,9 +803,32 @@ def chef(name):
                 get_spotify_playlist(response)
             elif response == 'flavor':
                 flavor_chef = flavors()
-                chef_dish(flavor_chef)
-        except:
-            url = "Unknown"
+                print("Cool! So you've got a couple of options now! Path 1: You can choose a chef to look at or we can give you"
+                "a dish from this flavor! Path 2: You can open a plotly pie chart showing the amount of recipes"
+                "each of these chefs have! Which one do you want to do?")
+                response = str(input("Enter '1' or '2' for either path: "))
+                while response not in one_two:
+                    response = input("Enter '1' or '2' for either path: ")
+                if response == '1':
+                    chef_dish(flavor_chef)
+                if response == '2':
+                    pie_chart(flavor_chef)
+                    print("Great! Let's go look at some chef/dishes from this flavor now!")
+                    chef_dish(flavor_chef)
+        elif response == "exit":
+            print("Bye! Hope your party's a blast!")
+            exit()
+        else:
+            print("Hmmm. That doesn't seem right!")
+            response = input("Enter 'flavor' to go back to the flavors! ")
+            while response != 'flavor':
+                print("Hmmm. That doesn't seem right!")
+                response = input("Enter 'flavor' to go back to the flavors! ")
+            flavor_chef = flavors()
+            chef_dish(flavor_chef)
+    elif response == "exit":
+        print("Bye! Hope your party's a blast!")
+        exit()
     else:
         print("Hmmm. That doesn't seem right!")
         response = input("Enter 'flavor' to go back to the flavors! ")
@@ -609,27 +839,45 @@ def chef(name):
         chef_dish(flavor_chef)
 
 def interactive_prompt():
-    print("-"*15, "\n", "PARTY PLANNING PROGRAM", "\n", "-"*15)
-    print("Hey! So you wanna plan a party? Don't know where to start? Look no"
+    one_two = ["1", "2", "exit"]
+    print("-"*30, "\n", "PARTY PLANNING PROGRAM \n", "-"*30)
+    print("Hey! So you wanna plan a party? Don't know where to start? Look no "
     "further! We'll help you with the two most important parts of any party: "
     "food and music! (You've gotta take care of the conversation on your own, "
     "though, sorry!)")
-    response = input("enter anything if this is the program you've been looking"
+    response = input("Enter anything if this is the program you've been looking for "
     "your whole life (enter 'exit' if you want to leave!): ")
-    while response != "exit":
-        print("With P^3 you can get delicious recipes and great music for the"
-        "best party you've ever thrown. Yes, even better than your neighbor Janet's"
-        "Halloween party last year.")
-        response = input("Cool right? ")
-        print("Yea, we think so too. Let's get started.")
-        flavor_chef = flavors()
-        print("Cool! So now you can choose a chef to look at or we can give you"
-        "a dish from this flavor! Which one do you want to do?")
+    if response == "exit":
+        print("Bye! Hope your party's a blast!")
+        exit()
+    print("With P^3 you can get delicious recipes and great music for the "
+    "best party you've ever thrown. Yes, even better than your neighbor Janet's "
+    "Halloween party last year.")
+    response = input("Cool right? ")
+    if response == 'exit':
+        print("Bye! Hope your party's a blast!")
+        exit()
+    print("Yea, we think so too. Let's get started.")
+    flavor_chef = flavors()
+    print("Cool! So you've got a couple of options now! Path 1: You can choose a chef to look at or we can give you"
+    "a dish from this flavor! Path 2: You can open a plotly pie chart showing the amount of recipes"
+    "each of these chefs have! Which one do you want to do?")
+    response = str(input("Enter '1' or '2' for either path: "))
+    while response not in one_two:
+        response = input("Enter '1' or '2' for either path: ")
+    if response == '1':
         chef_dish(flavor_chef)
-    print("Bye! Hope your party's a blast!")
+    elif response == '2':
+        pie_chart(flavor_chef)
+        print("Alright now let's choose a chef/dish!")
+        chef_dish(flavor_chef)
+    elif response == 'exit':
+        print("Bye! Hope your party's a blast!")
+        exit()
 
 
-
-
-
-get_dish_info()
+if __name__=="__main__":
+    #get_dish_info()
+    #init_db()
+    #insert_data()
+    interactive_prompt()
